@@ -1,0 +1,125 @@
+
+<%- include('../partials/head')%>
+
+<%- include('../partials/navbar')%>
+
+
+<div class="container">
+
+    <div class="my-5">
+
+        <div class="bg-white m-5 p-3 border border-danger rounded">
+            <h1>Edit <span class="text-info"> <%=f1team.name%> </span> </h1>
+
+
+            <form class="m-3" action="/f1teams/<%=f1team._id%>?_method=PUT" method="POST">
+                <div class="form-group">
+                    <label for="name">Enter team name:</label>
+                    <input type="text" class="form-control form-control-sm" id="name" name="name" placeholder="name" value="<%=f1team.name%>">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <label for="sponsor">Sponsor:</label>
+                        <input type="text" class="form-control form-control-sm" id="sponsor" name="sponsor" placeholder="sponsor" value="<%=f1team.sponsor%>">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="chassis">Chassis:</label>
+                        <input type="text" class="form-control form-control-sm" id="chassis" name="chassis" placeholder="chassis" value="<%=f1team.chassis%>">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <label for="ranking">Ranking:</label>
+                        <input type="text" class="form-control form-control-sm" id="ranking" name="ranking" placeholder="ranking" value="<%=f1team.ranking%>">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="engine">Engine:</label>
+                        <input type="text" class="form-control form-control-sm" id="engine" name="engine" placeholder="engine" value="<%=f1team.engine%>">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <label for="tires">Tires:</label>
+                        <input type="text" class="form-control form-control-sm" id="tires" name="tires" placeholder="tires" value="<%=f1team.tires%>">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="principal">Principal:</label>
+                        <input type="text" class="form-control form-control-sm" id="principal" name="principal" placeholder="principal" value="<%=f1team.principal%>">
+                    </div>
+                </div>
+
+                <div class="bg-white mt-3 px-3 border border-info rounded">
+                    <p class="mt-2">Driver One details</p>
+                    <div class="form-row"> 
+                        <div class="form-group col-8">
+                            <label for="driver1name">Name:</label>
+                            <input type="text" class="form-control form-control-sm" id="driver1name" name="driver1.name" placeholder="driver1name" value="<%=f1team.driver1.name%>">
+                        </div>
+                        <div class="form-group col-2">
+                            <label for="driver1num">Number:</label>
+                            <input type="text" class="form-control form-control-sm" id="driver1num" name="driver1.num" placeholder="driver1num" value="<%=f1team.driver1.num%>">
+                        </div>
+                        <div class="form-group col-2">
+                            <label for="driver1points">Points:</label>
+                            <input type="text" class="form-control form-control-sm" id="driver1points" name="driver1.points" placeholder="driver1points" value="<%=f1team.driver1.points%>">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white mt-4 px-3 border border-info rounded">
+                    <p class="mt-2">Driver Two details</p>
+                    <div class="form-row"> 
+                        <div class="form-group col-8">
+                            <label for="driver2name">Name:</label> 
+                            <input type="text" class="form-control form-control-sm" id="driver2name" name="driver2.name" placeholder="driver2name" value="<%=f1team.driver2.name%>">
+                        </div> 
+                        <div class="form-group col-2">
+                            <label for="driver2num">Number:</label>
+                            <input type="text" class="form-control form-control-sm" id="driver2num" name="driver2.num" placeholder="driver2num" value="<%=f1team.driver2.num%>">
+                        </div>
+                        <div class="form-group col-2">
+                            <label for="driver2points">Points:</label>
+                            <input type="text" class="form-control form-control-sm" id="driver2points" name="driver2.points" placeholder="driver2points" value="<%=f1team.driver2.points%>">
+                        </div>
+                    </div>
+                </div>
+                
+
+
+
+
+                    
+
+
+                <div class="form-group mt-3">
+                    <label for="category">Team Category</label>
+                    <select class="form-control form-control-sm" name="category" id="category">
+                        <% for(let category of categories){ %>
+                            <option value="<%=category%>" <%= f1team.category === category ? 'selected': '' %>><%=category%></option>
+                        <% } %>
+                    </select>
+                </div>
+
+
+
+                <button class="btn btn-success my-3">Save</button>
+
+            </form>
+
+            <a href="/f1teams/<%=f1team._id%>"><button class="btn btn-dark mx-3 my-1">Cancel</button></a>
+
+        </div>
+
+
+        
+        <br><br><br><br>br
+
+    </div>
+
+</div>
+
+
+<%- include('../partials/footer')%>

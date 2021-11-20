@@ -1,0 +1,40 @@
+
+<%- include('../partials/head')%>
+
+<%- include('../partials/navbar')%>
+
+
+<div class="container">
+
+    <div class="my-5">
+
+    <h1><%= f1team.name %></h1>
+    <ul>
+        <li>Sponsor: <span class="h6"><%= f1team.sponsor %></span> </li>
+        <li>Chassis: <span class="h6"> <%= f1team.chassis %> </span></li>
+        <li>Ranking: <span class="h6"> <%= f1team.ranking %> </span></li>
+        <li>Engine: <span class="h6"> <%= f1team.engine %> </span></li>
+        <li>Tires: <span class="h6"> <%= f1team.tires %> </span></li>
+        <li>Principal: <span class="h6"> <%= f1team.principal %> </span></li>
+        <li>Driver One : <span class="h6"> <%= f1team.driver1.name %> </span>, Number : <%= f1team.driver1.num %>, Points : <%= f1team.driver1.points %></li>
+        <li>Driver Two : <span class="h6"> <%= f1team.driver2.name %> </span>, Number : <%= f1team.driver2.num %>, Points : <%= f1team.driver2.points %></li>
+        <li>Category: <span class="h6"> <%= f1team.category %> </span></li>
+    </ul>
+
+
+    <a href="/f1teams/<%=f1team._id%>/edit"><button type="button" class="btn btn-success m-3">Edit Team</button></a>
+
+    <form action="/f1teams/<%=f1team._id%>?_method=DELETE" method="POST">
+        <button class="btn btn-danger m-3" >Delete</button>
+    </form>
+
+    <br><br>
+    <a href="/f1teams?category=<%= f1team.category%>"><button type="button" class="btn btn-primary m-3">List entire <%= f1team.category%></button></a>
+    <a href="/f1teams"><button type="button" class="btn btn-primary m-3">List All Teams</button></a>
+
+    </div>
+
+</div>
+
+
+<%- include('../partials/footer')%>

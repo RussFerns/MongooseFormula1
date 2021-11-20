@@ -1,0 +1,35 @@
+
+<%- include('../partials/head')%>
+
+<%- include('../partials/navbar')%>
+
+
+<div class="container">
+
+    <div class="my-5">
+        
+        <%if(category == 'All') {%>
+            <h1>All teams shown</h1>
+        <% } else { %>
+            <h1><%= category%> teams, by category...</h1>
+        <% } %>
+
+        <img class="my-2" style="height: 400px" src="https://www.formula1.com/content/dam/fom-website/sutton/2019/Hungary/Sunday/1017648855-LAT-20190804-_1ST3211.jpg.transform/9col/image.jpg" alt="">
+        <br><br>
+        <ul>
+            <% for(let team of f1teams) { %>
+            <li ><a class="lh-lg" href="/f1teams/<%=team._id%>"><%= team.name %></a> </li>
+            <% }%>
+        </ul>
+
+        <a href="/f1teams/new"><button type="button" class="btn btn-primary m-3">New Team</button></a>
+
+        <%if(category !== 'All') {%>
+        <a href="/f1teams"><button type="button" class="btn btn-primary m-3">All Teams</button></a>
+        <% } %>
+    </div>
+
+</div>
+
+
+<%- include('../partials/footer')%>
